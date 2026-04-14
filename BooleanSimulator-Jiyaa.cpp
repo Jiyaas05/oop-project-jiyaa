@@ -48,32 +48,34 @@ public:
     }
 };
 
-int main(
+int main()
 {
-    bol running = true;
+    bool running = true;
 
-    while (runing) {
+    while (running) {
         cout << "BOOLEAN TRUTH TABLE\n";
         cout << "1. Enter expression\n";
         cout << "2. Exit\n";
         cout << "Choice: ";
 
-        int choice
-        cin >> choice
-        cin.ignore()
-        if (choice = 1) {
-            cout << "Enter expression (e.g., A AND B): "
+        int choice;
+        cin >> choice;
+        cin.ignore();
+        if (choice == 1) {
+            cout << "Enter expression (e.g., A AND B): ";
             string expr;
             getline(cin expr);
+        }
         else if (choice == 2) {
-            running = flase;
+            running = false;
         }
         else {
-            cout << "Invalid choice." << endl
+            cout << "Invalid choice." << endl;
         }
     }
-    return 0
+    return 0;
 }
+
         int choice
         cin >> choice
         cin.ignore()
