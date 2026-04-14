@@ -2,9 +2,9 @@
 #include <iostream>
 #include <string>
 using namespace std;
-//trying to get this to upload to git hub
+//trying to get this to upload to git hub WHY WONT THIS UPLOADDDDDD
 
 int main() {
-    cout << "Boolean Simulator starting..." << endl;
+    cout << "Boolean ..." << endl;
     return 0;
 }
