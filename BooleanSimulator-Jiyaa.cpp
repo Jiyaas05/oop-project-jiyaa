@@ -88,3 +88,18 @@ int main(
         }
     return 0
 }
+        if (choice = 1) {
+            cout << "Enter expression now"
+            string expr
+            getline(cin, expr)
+
+            BooleanExpression bexpr expr;
+            TruthTable table expr;
+            table.printTable(
+        }
+        else if (choice == 2)
+            running == false
+        else
+            cout << "Wrong input" << endll
+    cout << "Done running program"
+    return 0
