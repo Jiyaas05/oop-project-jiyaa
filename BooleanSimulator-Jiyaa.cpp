@@ -62,7 +62,7 @@ int main()
         cin >> choice;
         cin.ignore();
         if (choice == 1) {
-            cout << "Enter expression (e.g., A AND B): ";
+            cout << "Enter expression : ";
             string expr;
             getline(cin, expr);
             BooleanExpression bexpr(expr);
