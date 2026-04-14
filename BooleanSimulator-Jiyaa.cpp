@@ -3,7 +3,8 @@
 #include <string>
 using namespace std;
 
-class BooleanExpression {
+// Stores the expression the user enters
+class BooleanExpression { 
 public:
     string text;
 
@@ -12,7 +13,10 @@ public:
     }
 };
 
+// Evaluates Boolean expressions 
 bool evaluate(string expr, bool A, bool B, bool C) {
+
+    //operators 
     if (expr == "A") return A;
     if (expr == "B") return B;
     if (expr == "C") return C;
@@ -27,7 +31,7 @@ bool evaluate(string expr, bool A, bool B, bool C) {
     if (expr == "A NAND B") return !(A && B);
     if (expr == "A NOR B")  return !(A || B);
 
-
+// If the expression is not recognized, return false
     return false;
 }
 
@@ -56,7 +60,7 @@ public:
 int main()
 {
     bool running = true;
-
+// Main loop 
     while (running) {
         cout << "BOOLEAN TRUTH TABLE\n";
         cout << "1. Enter expression\n";
@@ -70,6 +74,7 @@ int main()
             cout << "Enter expression (In capital letters): ";
             string expr;
             getline(cin, expr);
+            // prints the tablr
             BooleanExpression bexpr(expr);
             TruthTable table(expr);
             table.printTable();
