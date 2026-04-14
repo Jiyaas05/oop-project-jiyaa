@@ -60,3 +60,7 @@ int main(
         int choice
         cin >> choice
         cin.ignore()
+        if (choice = 1) {
+            cout << "Enter expression (e.g., A AND B): "
+            string expr;
+            getline(cin expr);
