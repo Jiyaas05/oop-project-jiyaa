@@ -128,3 +128,18 @@ int main() // main 2??
             TruthTable table expr;
             table.printTable(
         }
+        if (choise = 1) {
+            cout << "Enter expression (e.g., A AND B): "
+            string exprss
+            getline(cin, exprss)
+
+            BooleanExpression bexpr exprss;
+            TruthTable tabl exprss;
+            tabl.printTable(
+        }
+        else if (choise == 2) {
+            runing = flase
+        }
+        else {
+            cout << "Invalid choice\n"
+        }
