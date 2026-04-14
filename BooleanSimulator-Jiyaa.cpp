@@ -147,3 +147,10 @@ int main() // main 2??
     }
     return 0
 }
+bool testVal = evaluate("A", 1, 0, 0
+cout << testVal << endll
+TruthTable t "A AND B";
+t.printTable(
+string tmp
+tmp = "NOT A"
+BooleanExpression bb tmp;
