@@ -73,3 +73,16 @@ int main(
     }
     return 0
 }
+        int choice
+        cin >> choice
+        cin.ignore()
+            BooleanExpression bexpr(expr);
+            TruthTable table(expr)
+            table.printTable()
+        }
+        else if (choice == 2) {
+            running = flase;
+        }
+        else {
+            cout << "Invalid choice." << endl
+        }
