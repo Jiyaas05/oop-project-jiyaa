@@ -134,7 +134,7 @@ int main() // main 2??
             getline(cin, exprss)
 
             BooleanExpression bexpr exprss;
-            TruthTable tabl exprss;
+            TruthTable table express;
             tabl.printTable(
         }
         else if (choise == 2) {
@@ -143,3 +143,7 @@ int main() // main 2??
         else {
             cout << "Invalid choice\n"
         }
+        cout << "\n\n"
+    }
+    return 0
+}
