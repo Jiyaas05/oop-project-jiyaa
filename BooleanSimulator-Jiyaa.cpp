@@ -24,14 +24,14 @@ bool evaluate(string expr, bool A, bool B, bool C) {
     if (expr == "NOT B") return !B;
     if (expr == "NOT C") return !C;
 
-    return false
+    return false;
 }
 class TruthTable {
-public
-    string expr
+public:
+    string expr;
 
     TruthTable(string e) {
-        exp = e;
+        expr = e;
     }
  void printTable() {
         cout << "A B C | Result\n"
