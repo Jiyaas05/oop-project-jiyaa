@@ -23,6 +23,10 @@ bool evaluate(string expr, bool A, bool B, bool C) {
     if (expr == "NOT A") return !A;
     if (expr == "NOT B") return !B;
     if (expr == "NOT C") return !C;
+    if (expr == "A XOR B") return A ^ B;
+    if (expr == "A NAND B") return !(A && B);
+    if (expr == "A NOR B")  return !(A || B);
+
 
     return false;
 }
