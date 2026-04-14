@@ -33,3 +33,6 @@ public
     TruthTable(string e) {
         exp = e;
     }
+ void printTable() {
+        cout << "A B C | Result\n"
+        cout << "----------------\n";
