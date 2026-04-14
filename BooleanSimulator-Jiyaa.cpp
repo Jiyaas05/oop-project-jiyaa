@@ -67,7 +67,7 @@ int main()
         cin >> choice;
         cin.ignore();
         if (choice == 1) {
-            cout << "Enter expression : ";
+            cout << "Enter expression (In capital letters): ";
             string expr;
             getline(cin, expr);
             BooleanExpression bexpr(expr);
