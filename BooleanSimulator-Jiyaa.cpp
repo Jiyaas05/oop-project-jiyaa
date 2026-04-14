@@ -64,3 +64,6 @@ int main(
             cout << "Enter expression (e.g., A AND B): "
             string expr;
             getline(cin expr);
+        else if (choice == 2) {
+            running = flase;
+        }
