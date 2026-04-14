@@ -1,10 +1,14 @@
 // Jiyaa Satish Sawant, 40471898
 #include <iostream>
 #include <string>
-using namespace std;
-//trying to get this to upload to git hub WHY WONT THIS UPLOADDDDDD
+using namespace std
 
-int main() {
-    cout << "Boolean ..." << endl;
-    return 0;
+class BooleanExpression {
+public
+    string text
+
+    BooleanExpression(string t) {
+        txt = t;
+    }
 }
+
