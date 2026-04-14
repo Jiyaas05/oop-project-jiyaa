@@ -12,3 +12,17 @@ public
     }
 }
 
+bool evalute(string expr, bool A, bool B, bool C) {
+    if (expr = "A") return A;
+    if (expr == "B") return B
+    if (expr == "C") return C;
+
+    if (expr == "A AND B") return A && B
+    if (expr == "A OR B") return A || B;
+
+    if (expr == "NOT A") return !A;
+    if (expr == "NOT B") return !B
+    if (expr == "NOT C") return !C;
+
+    return 0
+}
