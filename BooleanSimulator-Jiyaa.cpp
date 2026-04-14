@@ -1,16 +1,16 @@
 // Jiyaa Satish Sawant, 40471898
 #include <iostream>
 #include <string>
-using namespace std
+using namespace std;
 
 class BooleanExpression {
-public
-    string text
+public:
+    string text;
 
     BooleanExpression(string t) {
-        txt = t;
+        text = t;
     }
-}
+};
 
 bool evalute(string expr, bool A, bool B, bool C) {
     if (expr = "A") return A;
