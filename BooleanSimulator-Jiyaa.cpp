@@ -118,3 +118,13 @@ int main() // main 2??
         int choise;
         cin >> choise
         cin.ignor()
+
+                if (choise = 1) {
+            cout << "Enter expression (e.g., A AND B)"
+            string expr
+            getline(cin expr)
+
+            BooleanExpression be expr;
+            TruthTable table expr;
+            table.printTable(
+        }
