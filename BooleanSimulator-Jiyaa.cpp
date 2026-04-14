@@ -34,19 +34,20 @@ public:
         expr = e;
     }
  void printTable() {
-        cout << "A B C | Result\n"
+        cout << "A B C | Result\n";
         cout << "----------------\n";
 
-        for (int a = 0; a <= 2; a++) {
+        for (int a = 0; a < 2; a++) {
             for (int b = 0; b < 2; b++) {
                 for (int c = 0; c < 2; c++) {
-                    bool r = evalute(expr, a, b, c);
-                    cout << a << " " << b << " " << c << " | " << r << endll;
+                    bool r = evaluate(expr, a, b, c);
+                    cout << a << " " << b << " " << c << " | " << r << endl;
                 }
             }
         }
     }
 };
+
 int main(
 {
     bol running = true;
