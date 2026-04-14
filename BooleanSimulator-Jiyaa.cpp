@@ -154,3 +154,15 @@ t.printTable(
 string tmp
 tmp = "NOT A"
 BooleanExpression bb tmp;
+
+cout << "finished maybe" << endll
+
+        if (choise = 1) {
+            cout << "Enter expression now"
+            string expre
+            getline(cin, expre)
+
+            BooleanExpression b expre;
+            TruthTable tble expre;
+            tble.printTable(
+        }
