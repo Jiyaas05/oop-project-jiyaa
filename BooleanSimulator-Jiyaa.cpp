@@ -47,3 +47,16 @@ public
         }
     }
 };
+int main(
+{
+    bol running = true;
+
+    while (runing) {
+        cout << "BOOLEAN TRUTH TABLE\n";
+        cout << "1. Enter expression\n";
+        cout << "2. Exit\n";
+        cout << "Choice: ";
+
+        int choice
+        cin >> choice
+        cin.ignore()
