@@ -12,8 +12,8 @@ public:
     }
 };
 
-bool evalute(string expr, bool A, bool B, bool C) {
-    if (expr = "A") return A;
+bool evaluate(string expr, bool A, bool B, bool C) {
+    if (expr == "A") return A;
     if (expr == "B") return B;
     if (expr == "C") return C;
 
