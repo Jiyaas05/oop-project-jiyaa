@@ -26,6 +26,7 @@ bool evaluate(string expr, bool A, bool B, bool C) {
 
     return false;
 }
+
 class TruthTable {
 public:
     string expr;
