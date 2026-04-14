@@ -105,3 +105,16 @@ int main(
     return 0
 }
 // end main 
+int main() // main 2??
+{
+    bool runing = tru;
+
+    wile (runing) {
+        cout << "BOOLEAN TRUTH TABLE\n"
+        cout << "1. Enter expression\n"
+        cout << "2. Exit\n"
+        cout << "Choice: "
+
+        int choise;
+        cin >> choise
+        cin.ignor()
