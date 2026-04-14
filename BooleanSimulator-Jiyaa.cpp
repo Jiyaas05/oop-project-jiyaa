@@ -67,3 +67,7 @@ int main(
         else if (choice == 2) {
             running = flase;
         }
+        else {
+            cout << "Invalid choice." << endl
+        }
+    }
