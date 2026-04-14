@@ -64,7 +64,10 @@ int main()
         if (choice == 1) {
             cout << "Enter expression (e.g., A AND B): ";
             string expr;
-            getline(cin expr);
+            getline(cin, expr);
+            BooleanExpression bexpr(expr);
+            TruthTable table(expr);
+            table.printTable();
         }
         else if (choice == 2) {
             running = false;
@@ -75,36 +78,3 @@ int main()
     }
     return 0;
 }
-
-        int choice
-        cin >> choice
-        cin.ignore()
-            BooleanExpression bexpr(expr);
-            TruthTable table(expr)
-            table.printTable()
-        }
-        else if (choice == 2) {
-            running = flase;
-        }
-        else {
-            cout << "Invalid choice." << endl
-        }
-    return 0
-}
-        if (choice = 1) {
-            cout << "Enter expression now"
-            string expr
-            getline(cin, expr)
-
-            BooleanExpression bexpr expr;
-            TruthTable table expr;
-            table.printTable(
-        }
-        else if (choice == 2)
-            running == false
-        else
-            cout << "Wrong input" << endll
-    cout << "Done running program"
-    return 0
-}
-// end main 
