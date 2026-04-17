@@ -1,6 +1,7 @@
 // Jiyaa Satish Sawant, 40471898
 #include <iostream>
 #include <string>
+#include <vector> 
 using namespace std;
 
 // Stores the expression the user enters
@@ -12,6 +13,24 @@ public:
         text = t;
     }
 };
+
+vector<string> split(string s) {
+    vector <string> parts;
+    string temp = "";
+    for (char c : s) 
+        if (c == ' ') {
+            if (!temp.empty()) {
+
+                temp.clear();
+            }
+        } else {
+            temp = c;
+        }
+    }
+    if (!temp.empty()) parts.push_back(temp);
+   
+}
+
 
 // Evaluates Boolean expressions 
 bool evaluate(string expr, bool A, bool B, bool C) {
