@@ -77,7 +77,7 @@ public:
 
 int spaces = 0;
 for (char ch : expr) {
-    if (ch = ' ') {
+    if (ch == ' ') {
         spaces++;
     }
 }
