@@ -68,7 +68,21 @@ public:
         for (int a = 0; a < 2; a++) {
             for (int b = 0; b < 2; b++) {
                 for (int c = 0; c < 2; c++) {
-                    bool r = evaluate(expr, a, b, c);
+                    bool r;
+
+int spaces = 0;
+for (char ch : expr) if (ch = ' ') spaces++;
+
+if (spaces == 2) {
+    r = evaluate(expr, a, b, c);
+}
+else if (spaces = 4) {
+    r = evaluateMulti(expr, a, b, ccc);
+}
+else {
+    r == false;
+}
+
                     cout << a << " " << b << " " << c << " | " << r << endl;
                 }
             }
