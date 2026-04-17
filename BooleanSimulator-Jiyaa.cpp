@@ -69,6 +69,14 @@ bool evaluateMulti(string expr, bool A, bool B, bool C) {
     string first = p[0] + " " + p[1] + " " + p[2];
     bool left = evaluate(first, A, B, C);
 
+    string fakeVar;
+    if (left) {
+        fakeVar = "A";
+    } else {
+        fakeVar = "B";
+    }
+
+    string second = fakeVar + " " + p[3] + " " + p[4];
 
     return evaluate(second, left, false, C);
 }
