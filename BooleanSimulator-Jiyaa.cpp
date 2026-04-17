@@ -59,6 +59,21 @@ bool evaluate(string expr, bool A, bool B, bool C) {
     return false;
 }
 
+bool evaluateMulti(string expr, bool A, bool B, bool C) {
+    vector<string> p = split(expr);
+
+    if (p.size() != 5) {
+        return false;
+    }
+
+    string first = p[0] + " " + p[1] + " " + p[2];
+    bool left = evaluate(first, A, B, C);
+
+
+    return evaluate(second, left, false, C);
+}
+
+
 class TruthTable {
 public:
     string expr;
@@ -85,11 +100,11 @@ for (char ch : expr) {
 if (spaces == 2) {
     r = evaluate(expr, a, b, c);
 }
-else if (spaces = 4) {
+else if (spaces == 4) {
     r = evaluateMulti(expr, a, b, c);
 }
 else {
-    r == false;
+    r = false;
 }
 cout << a << " " << b << " " << c << " | " << r << endl;
                 }
