@@ -71,7 +71,11 @@ public:
                     bool r;
 
 int spaces = 0;
-for (char ch : expr) if (ch = ' ') spaces++;
+for (char ch : expr) {
+    if (ch = ' ') {
+        spaces++;
+    }
+}
 
 if (spaces == 2) {
     r = evaluate(expr, a, b, c);
@@ -82,8 +86,7 @@ else if (spaces = 4) {
 else {
     r == false;
 }
-
-                    cout << a << " " << b << " " << c << " | " << r << endl;
+cout << a << " " << b << " " << c << " | " << r << endl;
                 }
             }
         }
