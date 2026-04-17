@@ -15,20 +15,25 @@ public:
 };
 
 vector<string> split(string s) {
-    vector <string> parts;
+    vector<string> parts;
     string temp = "";
-    for (char c : s) 
+
+    for (char c : s) {
         if (c == ' ') {
             if (!temp.empty()) {
-
+                parts.push_back(temp);
                 temp.clear();
             }
         } else {
-            temp = c;
+            temp += c;
         }
     }
-    if (!temp.empty()) parts.push_back(temp);
-   
+
+    if (!temp.empty()) {
+        parts.push_back(temp);
+    }
+
+    return parts;
 }
 
 
@@ -81,7 +86,7 @@ if (spaces == 2) {
     r = evaluate(expr, a, b, c);
 }
 else if (spaces = 4) {
-    r = evaluateMulti(expr, a, b, ccc);
+    r = evaluateMulti(expr, a, b, c);
 }
 else {
     r == false;
