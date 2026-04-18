@@ -35,6 +35,14 @@ vector<string> split(string s) {
 
     return parts;
 }
+
+string toUpperCase(string s) {
+    string result = "";
+    for (char c : s) {
+        result += toupper(c);
+    }
+    return result;
+}
 string removeBrackets(string s) {
     string out = "";
     for (char c : s) {
@@ -69,6 +77,13 @@ bool evaluate(string expr, bool A, bool B, bool C) {
     if (expr == "B NOT C") return B && (!C);
     if (expr == "C NOT A") return C && (!A);
     if (expr == "C NOT B") return C && (!B);
+    
+    if (expr == "TRUE NOT A") return !A;
+    if (expr == "TRUE NOT B") return !B;
+    if (expr == "TRUE NOT C") return !C;
+    if (expr == "FALSE NOT A") return A;
+    if (expr == "FALSE NOT B") return B;
+    if (expr == "FALSE NOT C") return C;
 
     // If the expression is not recognized, return false
     return false;
@@ -116,6 +131,26 @@ bool evaluateThree(string expr, bool A, bool B, bool C) {
     return evaluate(third, mid, false, C);
 }
 
+bool evaluateComplex(string expr, bool A, bool B, bool C) {
+    vector<string> p = split(expr);
+    
+    // Handle expressions like "A AND B NOT C"
+    if (p.size() == 7 && p[5] == "NOT") {
+        string first = p[0] + " " + p[1] + " " + p[2];
+        bool left = evaluate(first, A, B, C);
+        
+        string fakeVar1 = left ? "A" : "B";
+        string second = fakeVar1 + " " + p[3] + " " + p[4];
+        bool mid = evaluate(second, left, false, C);
+        
+        string fakeVar2 = mid ? string("A") : string("B");
+        string third = fakeVar2 + " NOT " + p[6];
+        return evaluate(third, mid, false, C);
+    }
+    
+    return false;
+}
+
 
 class TruthTable {
 public:
@@ -150,7 +185,11 @@ public:
                         r = evaluateMulti(clean, a, b, c);
                     }
                     else if (spaces == 6) {
-                        r = evaluateThree(clean, a, b, c);
+                        if (evaluateComplex(clean, a, b, c) != false || clean.find("NOT") != string::npos) {
+                            r = evaluateComplex(clean, a, b, c);
+                        } else {
+                            r = evaluateThree(clean, a, b, c);
+                        }
                     }
                     else {
                         r = false;
@@ -180,6 +219,8 @@ int main()
             cout << "Enter expression (In capital letters): ";
             string expr;
             getline(cin, expr);
+            // Convert to uppercase
+            expr = toUpperCase(expr);
             // prints the tablr
             BooleanExpression bexpr(expr);
             TruthTable table(expr);
