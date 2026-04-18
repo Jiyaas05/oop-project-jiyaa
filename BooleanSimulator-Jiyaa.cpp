@@ -35,6 +35,15 @@ vector<string> split(string s) {
 
     return parts;
 }
+string removeBrackets(string s) {
+    string out = "";
+    for (char c : s) {
+        if (c != '(' && c != ')') {
+            out += c;
+        }
+    }
+    return out;
+}
 
 
 // Evaluates Boolean expressions 
