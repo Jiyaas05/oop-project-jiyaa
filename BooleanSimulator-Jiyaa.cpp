@@ -131,9 +131,13 @@ if (spaces == 2) {
 else if (spaces == 4) {
     r = evaluateMulti(expr, a, b, c);
 }
+else if (spaces == 6) {
+    r = evaluateThree(expr, a, b, c);
+}
 else {
     r = false;
 }
+
 cout << a << " " << b << " " << c << " | " << r << endl;
                 }
             }
