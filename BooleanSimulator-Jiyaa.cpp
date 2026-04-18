@@ -239,7 +239,7 @@ public:
 int main()
 {
     bool running = true;
-    // Main loop
+    // Main loop 
     while (running) {
         cout << "BOOLEAN TRUTH TABLE\n";
         cout << "1. Enter expression\n";
