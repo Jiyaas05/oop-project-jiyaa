@@ -63,6 +63,12 @@ bool evaluate(string expr, bool A, bool B, bool C) {
     if (expr == "A XOR B") return A ^ B;
     if (expr == "A NAND B") return !(A && B);
     if (expr == "A NOR B")  return !(A || B);
+    if (expr == "A NOT B") return A && (!B);
+    if (expr == "A NOT C") return A && (!C);
+    if (expr == "B NOT A") return B && (!A);
+    if (expr == "B NOT C") return B && (!C);
+    if (expr == "C NOT A") return C && (!A);
+    if (expr == "C NOT B") return C && (!B);
 
     // If the expression is not recognized, return false
     return false;
