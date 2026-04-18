@@ -53,6 +53,45 @@ string removeBrackets(string s) {
     return out;
 }
 
+bool evalToken(string t, bool A, bool B, bool C) {
+    if (t == "A") return A;
+    if (t == "B") return B;
+    if (t == "C") return C;
+    return false;
+}
+
+bool evaluateExpression(string expr, bool A, bool B, bool C) {
+    vector<string> p = split(expr);
+
+    for (int i = 0; i < p.size(); i++) {
+        if (p[i] == "NOT" && i + 1 < p.size()) {
+            bool val = evalToken(p[i+1], A, B, C);
+            p[i] = val ? "FALSE" : "TRUE";
+            p.erase(p.begin() + i + 1);
+        }
+    }
+
+    for (int i = 0; i < p.size(); i++) {
+        if (p[i] == "TRUE") p[i] = "A";
+        if (p[i] == "FALSE") p[i] = "B";
+    }
+
+    bool result = evalToken(p[0], A, B, C);
+
+    for (int i = 1; i < p.size(); i += 2) {
+        string op = p[i];
+        bool right = evalToken(p[i+1], A, B, C);
+
+        if (op == "AND") result = result && right;
+        else if (op == "OR") result = result || right;
+        else if (op == "XOR") result = result ^ right;
+        else if (op == "NAND") result = !(result && right);
+        else if (op == "NOR") result = !(result || right);
+    }
+
+    return result;
+}
+
 
 // Evaluates Boolean expressions 
 bool evaluate(string expr, bool A, bool B, bool C) {
@@ -113,23 +152,34 @@ bool evaluateMulti(string expr, bool A, bool B, bool C) {
 
 bool evaluateThree(string expr, bool A, bool B, bool C) {
     vector<string> p = split(expr);
+   
+     if (p.size() == 7) {
+        string first = p[0] + " " + p[1] + " " + p[2];
+        bool left = evaluate(first, A, B, C);
 
-    if (p.size() != 7) {
-        return false;
+        string fakeVar1 = left ? "A" : "B";
+        string second = fakeVar1 + " " + p[3] + " " + p[4];
+        bool mid = evaluate(second, left, false, C);
+
+        string fakeVar2 = mid ? "A" : "B";
+        string third = fakeVar2 + " " + p[5] + " " + p[6];
+
+        return evaluate(third, mid, false, C);
     }
 
-    string first = p[0] + " " + p[1] + " " + p[2];
-    bool left = evaluate(first, A, B, C);
+    if (p.size() == 6 && p[4] == "NOT") {
+        string first = p[0] + " " + p[1] + " " + p[2];
+        bool left = evaluate(first, A, B, C);
 
-    string fakeVar1 = left ? "A" : "B";
-    string second = fakeVar1 + " " + p[3] + " " + p[4];
-    bool mid = evaluate(second, left, false, C);
+        string fakeVar = left ? "A" : "B";
+        string second = fakeVar + " " + p[3] + " NOT " + p[5];
 
-    string fakeVar2 = mid ? "A" : "B";
-    string third = fakeVar2 + " " + p[5] + " " + p[6];
+        return evaluate(second, left, false, C);
+    }
 
-    return evaluate(third, mid, false, C);
+    return false;
 }
+
 
 bool evaluateComplex(string expr, bool A, bool B, bool C) {
     vector<string> p = split(expr);
