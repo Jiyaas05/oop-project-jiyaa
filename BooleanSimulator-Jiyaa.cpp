@@ -64,7 +64,7 @@ bool evaluate(string expr, bool A, bool B, bool C) {
     if (expr == "A NAND B") return !(A && B);
     if (expr == "A NOR B")  return !(A || B);
 
- // If the expression is not recognized, return false
+    // If the expression is not recognized, return false
     return false;
 }
 
@@ -134,24 +134,24 @@ public:
                         if (ch == ' ') {
                             spaces++;
                         }
-                }
+                    }
 
 
-                if (spaces == 2) {
-                     r = evaluate(clean, a, b, c);
-                }   
-                else if (spaces == 4) {
-                    r = evaluateMulti(clean, a, b, c);
-                }
-                else if (spaces == 6) {
-                     r = evaluateThree(clean, a, b, c);
-                }
-                else {
-                    r = false;
-                }
+                    if (spaces == 2) {
+                        r = evaluate(clean, a, b, c);
+                    }   
+                    else if (spaces == 4) {
+                        r = evaluateMulti(clean, a, b, c);
+                    }
+                    else if (spaces == 6) {
+                        r = evaluateThree(clean, a, b, c);
+                    }
+                    else {
+                        r = false;
+                    }
 
-                cout << a << " " << b << " " << c << " | " << r << endl;
-            }
+                    cout << a << " " << b << " " << c << " | " << r << endl;
+                }
             }
         }
     }
@@ -160,7 +160,7 @@ public:
 int main()
 {
     bool running = true;
- // Main loop 
+    // Main loop 
     while (running) {
         cout << "BOOLEAN TRUTH TABLE\n";
         cout << "1. Enter expression\n";
