@@ -81,6 +81,26 @@ bool evaluateMulti(string expr, bool A, bool B, bool C) {
     return evaluate(second, left, false, C);
 }
 
+bool evaluateThree(string expr, bool A, bool B, bool C) {
+    vector<string> p = split(expr);
+
+    if (p.size() != 7) {
+        return false;
+    }
+
+    string first = p[0] + " " + p[1] + " " + p[2];
+    bool left = evaluate(first, A, B, C);
+
+    string fakeVar1 = left ? "A" : "B";
+    string second = fakeVar1 + " " + p[3] + " " + p[4];
+    bool mid = evaluate(second, left, false, C);
+
+    string fakeVar2 = mid ? "A" : "B";
+    string third = fakeVar2 + " " + p[5] + " " + p[6];
+
+    return evaluate(third, mid, false, C);
+}
+
 
 class TruthTable {
 public:
