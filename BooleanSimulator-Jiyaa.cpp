@@ -59,7 +59,7 @@ bool evalToken(string t, bool A, bool B, bool C) {
     if (t == "C") return C;
     return false;
 }
-
+// Evaluates Boolean expressions 
 bool evaluateExpression(string expr, bool A, bool B, bool C) {
     vector<string> p = split(expr);
 
@@ -90,115 +90,6 @@ bool evaluateExpression(string expr, bool A, bool B, bool C) {
     }
 
     return result;
-}
-
-
-// Evaluates Boolean expressions 
-bool evaluate(string expr, bool A, bool B, bool C) {
-
-    //operators 
-    if (expr == "A") return A;
-    if (expr == "B") return B;
-    if (expr == "C") return C;
-
-    if (expr == "A AND B") return A && B;
-    if (expr == "A OR B") return A || B;
-
-    if (expr == "NOT A") return !A;
-    if (expr == "NOT B") return !B;
-    if (expr == "NOT C") return !C;
-    if (expr == "A XOR B") return A ^ B;
-    if (expr == "A NAND B") return !(A && B);
-    if (expr == "A NOR B")  return !(A || B);
-    if (expr == "A NOT B") return A && (!B);
-    if (expr == "A NOT C") return A && (!C);
-    if (expr == "B NOT A") return B && (!A);
-    if (expr == "B NOT C") return B && (!C);
-    if (expr == "C NOT A") return C && (!A);
-    if (expr == "C NOT B") return C && (!B);
-    
-    if (expr == "TRUE NOT A") return !A;
-    if (expr == "TRUE NOT B") return !B;
-    if (expr == "TRUE NOT C") return !C;
-    if (expr == "FALSE NOT A") return A;
-    if (expr == "FALSE NOT B") return B;
-    if (expr == "FALSE NOT C") return C;
-
-    // If the expression is not recognized, return false
-    return false;
-}
-
-bool evaluateMulti(string expr, bool A, bool B, bool C) {
-    vector<string> p = split(expr);
-
-    if (p.size() != 5) {
-        return false;
-    }
-
-    string first = p[0] + " " + p[1] + " " + p[2];
-    bool left = evaluate(first, A, B, C);
-
-    string fakeVar;
-    if (left) {
-        fakeVar = "A";
-    } else {
-        fakeVar = "B";
-    }
-
-    string second = fakeVar + " " + p[3] + " " + p[4];
-
-    return evaluate(second, left, false, C);
-}
-
-bool evaluateThree(string expr, bool A, bool B, bool C) {
-    vector<string> p = split(expr);
-
-    if (p.size() == 7) {
-        string first = p[0] + " " + p[1] + " " + p[2];
-        bool left = evaluate(first, A, B, C);
-
-        string fakeVar1 = left ? "A" : "B";
-        string second = fakeVar1 + " " + p[3] + " " + p[4];
-        bool mid = evaluate(second, left, false, C);
-
-        string fakeVar2 = mid ? "A" : "B";
-        string third = fakeVar2 + " " + p[5] + " " + p[6];
-
-        return evaluate(third, mid, false, C);
-    }
-
-    if (p.size() == 6 && p[4] == "NOT") {
-        string first = p[0] + " " + p[1] + " " + p[2];
-        bool left = evaluate(first, A, B, C);
-
-        string fakeVar = left ? "A" : "B";
-        string second = fakeVar + " " + p[3] + " NOT " + p[5];
-
-        return evaluate(second, left, false, C);
-    }
-
-    return false;
-}
-
-
-bool evaluateComplex(string expr, bool A, bool B, bool C) {
-    vector<string> p = split(expr);
-    
-    // Handle expressions like "A AND B NOT C"
-    if (p.size() == 7 && p[5] == "NOT") {
-        string first = p[0] + " " + p[1] + " " + p[2];
-        bool left = evaluate(first, A, B, C);
-        
-        string fakeVar1 = left ? "A" : "B";
-        string second = fakeVar1 + " " + p[3] + " " + p[4];
-        bool mid = evaluate(second, left, false, C);
-        
-        string fakeVar2 = mid ? string("A") : string("B");
-        string third = fakeVar2 + " NOT " + p[6];
-        return evaluate(third, mid, false, C);
-    }
-    
-    return false;
 }
 
 
