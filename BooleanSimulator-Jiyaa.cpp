@@ -152,8 +152,8 @@ bool evaluateMulti(string expr, bool A, bool B, bool C) {
 
 bool evaluateThree(string expr, bool A, bool B, bool C) {
     vector<string> p = split(expr);
-   
-     if (p.size() == 7) {
+
+    if (p.size() == 7) {
         string first = p[0] + " " + p[1] + " " + p[2];
         bool left = evaluate(first, A, B, C);
 
@@ -227,23 +227,7 @@ public:
                         }
                     }
 
-
-                    if (spaces == 2) {
-                        r = evaluate(clean, a, b, c);
-                    }   
-                    else if (spaces == 4) {
-                        r = evaluateMulti(clean, a, b, c);
-                    }
-                    else if (spaces == 6) {
-                        if (evaluateComplex(clean, a, b, c) != false || clean.find("NOT") != string::npos) {
-                            r = evaluateComplex(clean, a, b, c);
-                        } else {
-                            r = evaluateThree(clean, a, b, c);
-                        }
-                    }
-                    else {
-                        r = false;
-                    }
+                    r = evaluateExpression(clean, a, b, c);
 
                     cout << a << " " << b << " " << c << " | " << r << endl;
                 }
@@ -255,7 +239,7 @@ public:
 int main()
 {
     bool running = true;
-    // Main loop 
+    // Main loop
     while (running) {
         cout << "BOOLEAN TRUTH TABLE\n";
         cout << "1. Enter expression\n";
