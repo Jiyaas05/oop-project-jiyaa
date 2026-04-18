@@ -57,8 +57,11 @@ bool evalToken(string t, bool A, bool B, bool C) {
     if (t == "A") return A;
     if (t == "B") return B;
     if (t == "C") return C;
+    if (t == "1") return true;
+    if (t == "0") return false;
     return false;
 }
+
 // Evaluates Boolean expressions 
 bool evaluateExpression(string expr, bool A, bool B, bool C) {
     vector<string> p = split(expr);
@@ -72,8 +75,8 @@ bool evaluateExpression(string expr, bool A, bool B, bool C) {
     }
 
     for (int i = 0; i < p.size(); i++) {
-        if (p[i] == "TRUE") p[i] = "A";
-        if (p[i] == "FALSE") p[i] = "B";
+        if (p[i] == "TRUE") p[i] = "1";
+        if (p[i] == "FALSE") p[i] = "0";
     }
 
     bool result = evalToken(p[0], A, B, C);
